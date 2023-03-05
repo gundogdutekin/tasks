@@ -19,9 +19,6 @@ function App() {
   }
   const onCreate =async  (title,task) => {
       const response=await axios.post("http://localhost:3004/tasks",{title,task}).then(result=>result)
-      //console.log(reponse)
-      /*const taskObject = [...tasks,{title,task}]
-      setTasks(taskObject)*/
       if(response.status===201 && response.statusText==="Created"){
         listTasks()
       }else{
@@ -32,18 +29,9 @@ function App() {
   
    const handleDelete=async (Key)=>{
     await axios.delete(`http://localhost:3004/tasks/${Key}`).then(result=>{listTasks()})
-    //setTasks(tasks.filter((element,index)=>index!==parseInt(Key)))
-    //listTasks()
   }
   const updateTask=async (Key,title,task)=>{
     await axios.put(`http://localhost:3004/tasks/${Key}`,{title,task}).then(result=>{listTasks()})
-    /*const newTasks=tasks.map((element,index)=>{
-      if(index===parseInt(Key)){
-        return({title,task})
-      }
-      return element
-    })*/
-    //setTasks(newTasks)
     setEdithidden(!editHidden)
   }
 
