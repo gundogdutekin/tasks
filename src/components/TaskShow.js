@@ -20,7 +20,7 @@ function TaskShow({editHidden,indexId,deleteItem,task,onUpdate}) {
     return ( 
         <div className="card"> 
           {showedit ? (
-          <TaskCreate onUpdate={handleSubmit} indexId={indexId} task={task} taskEdit={true} />
+          <TaskCreate onUpdate={handleSubmit} indexId={task.id} task={task} taskEdit={true} />
           ) : (
            <>
             <div className="card-header">
@@ -30,8 +30,8 @@ function TaskShow({editHidden,indexId,deleteItem,task,onUpdate}) {
                 {task.task}
             </div>
             <div className="card-footer">
-                <button value={indexId} onClick={handleDelete}   className="task-list-button danger">Sil</button>
-                <button value={indexId} onClick={handleEditChange}  className="task-list-button">Düzenle</button>
+                <button value={task.id} onClick={handleDelete}   className="task-list-button danger">Sil</button>
+                <button value={task.id} onClick={handleEditChange}  className="task-list-button">Düzenle</button>
             </div>
           </>
           )
